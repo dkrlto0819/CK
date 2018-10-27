@@ -4,11 +4,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class inputScene : MonoBehaviour {
-
+    string selectedLevel, selectedLanguage;
+    
 	// Use this for initialization
 	void Start () {
-		
+        Debug.Log(saveValue.level);
+        Debug.Log(saveValue.language);
 	}
+
+    void getValue(){
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -20,7 +26,5 @@ public class inputScene : MonoBehaviour {
     private void OnGUI()
     {
         textField = GUI.TextArea(new Rect(500, 11, 275, 295), textField);
-
-        //GUI.Label(new Rect(100))
     }
 }
