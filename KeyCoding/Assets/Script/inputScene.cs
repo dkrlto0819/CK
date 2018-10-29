@@ -7,8 +7,8 @@ public class inputScene : MonoBehaviour {
     string selectedLevel, selectedLanguage;
 
 	void Start () {
-        Debug.Log(saveValue.level);
-        Debug.Log(saveValue.language);
+        textReader scanner = new textReader();
+        scanner.textread();
 	}
 
     void getValue(){
