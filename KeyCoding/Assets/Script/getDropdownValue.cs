@@ -20,8 +20,6 @@ public class getDropdownValue : MonoBehaviour {
 	}
 
     public void getLevelValue(){
-        //getDropdownValue levelValue = GameObject.Find("levelChoice").GetComponent<getDropdownValue>();
-
         value_Dropdown = GameObject.Find("levelChoice").GetComponent<Dropdown>();
         Level = value_Dropdown.value.ToString();
         Debug.Log(Level);
