@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 
 public class getDropdownValue : MonoBehaviour {
-
     Dropdown value_Dropdown;
 
     public string Level, Language;

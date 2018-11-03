@@ -2,20 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class inputScene : MonoBehaviour {
     string selectedLevel, selectedLanguage;
+    Text ScrollText;
 
 	void Start () {
         textReader scanner = new textReader();
-        scanner.textread();
+        scanner.SecondSceneDropdownTextread();
+        AddTextToScroll();
 	}
-
-    void getValue(){
-
-    }
 	
-	// Update is called once per frame
 	void Update () {
 		
 	}
@@ -25,5 +23,11 @@ public class inputScene : MonoBehaviour {
     private void OnGUI()
     {
         textField = GUI.TextArea(new Rect(500, 11, 275, 295), textField);
+    }
+
+    public void AddTextToScroll()
+    {
+        textReader fillExample = new textReader();
+        fillExample.CallExampleFile();
     }
 }
