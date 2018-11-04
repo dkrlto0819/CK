@@ -22,7 +22,6 @@ public class textReader : MonoBehaviour {
         while ((line = fileScanner.ReadLine()) != null)
         {
             dropdown.options.Add(new Dropdown.OptionData() { text = line });
-            Debug.Log(line);
             counter++;
         }
 
@@ -36,7 +35,6 @@ public class textReader : MonoBehaviour {
         while ((line = fileScanner.ReadLine()) != null)
         {
             scrollText.text += line + "\n";
-            Debug.Log(line);
         }
 
         fileScanner.Close();

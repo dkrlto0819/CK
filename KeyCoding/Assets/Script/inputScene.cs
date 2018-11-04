@@ -7,9 +7,12 @@ using UnityEngine.UI;
 public class inputScene : MonoBehaviour {
     string selectedLevel, selectedLanguage;
     Text ScrollText;
+    Canvas resultCanvas;
 
 	void Start () {
         textReader scanner = new textReader();
+        resultCanvas = GameObject.Find("ResultCanvas").GetComponent<Canvas>();
+        resultCanvas.gameObject.SetActive(false);
         scanner.SecondSceneDropdownTextread();
         AddTextToScroll();
 	}
@@ -17,13 +20,6 @@ public class inputScene : MonoBehaviour {
 	void Update () {
 		
 	}
-
-    private string textField = "";
-
-    private void OnGUI()
-    {
-        textField = GUI.TextArea(new Rect(500, 11, 275, 295), textField);
-    }
 
     public void AddTextToScroll()
     {
