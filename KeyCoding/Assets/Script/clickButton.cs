@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class clickButton : MonoBehaviour {
-
     Canvas resultCanvas;
-	// Use this for initialization
-	void Start () {
+
+	void Awake () {
         resultCanvas = GameObject.Find("ResultCanvas").GetComponent<Canvas>();
     }
 	
@@ -16,12 +15,10 @@ public class clickButton : MonoBehaviour {
 	}
 
     public void ClickDoneButton(){
-
         resultCanvas.gameObject.SetActive(true);
     }
 
     public void ClickXButton(){
-        //resultCanvas = GameObject.Find("ResultCanvas").GetComponent<Canvas>();
         resultCanvas.gameObject.SetActive(false);
     }
 }
