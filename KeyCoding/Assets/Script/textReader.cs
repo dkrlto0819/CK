@@ -10,15 +10,22 @@ public class textReader : MonoBehaviour {
     Dropdown dropdown;
     string basicPath = "Assets/Textfile/";
 
+    void Start()
+    {
+        Dropdown dropdown1 = GetComponent<Dropdown>();
+        //Add listener for when the value of the Dropdown changes, to take action
+        dropdown1.onValueChanged.AddListener(delegate {
+            DropdownValueChanged(dropdown1);
+        });
+    }
 
     public void SecondSceneDropdownTextread(){
         int counter = 0;
-        string filename = "level1.txt";
+        string filename = "1";
         string line;
-        List<string> DropOptions = new List<string> { "Option 1", "Option 2" };
-        Dropdown dropdown = GameObject.Find("StageContent").GetComponent<Dropdown>();
+        dropdown = GameObject.Find("StageContent").GetComponent<Dropdown>();
 
-        System.IO.StreamReader fileScanner = new System.IO.StreamReader(@"Assets/Textfile/"+filename);
+        System.IO.StreamReader fileScanner = new System.IO.StreamReader(@"Assets/Textfile/"+"level/"+saveValue.level+".txt");
         while ((line = fileScanner.ReadLine()) != null)
         {
             dropdown.options.Add(new Dropdown.OptionData() { text = line });
@@ -28,10 +35,25 @@ public class textReader : MonoBehaviour {
         fileScanner.Close();
     }
 
-    public void CallExampleFile(){
+    //public void CallExampleFile(){
+    //    string line;
+    //    Text scrollText = GameObject.Find("scrollText").GetComponent<Text>();
+    //    System.IO.StreamReader fileScanner = new System.IO.StreamReader(@"Assets/Textfile/example/" + saveValue.language + "/2.txt");
+    //    while ((line = fileScanner.ReadLine()) != null)
+    //    {
+    //        scrollText.text += line + "\n";
+    //    }
+
+    //    fileScanner.Close();
+    //}
+
+    public void DropdownValueChanged(Dropdown change){
         string line;
         Text scrollText = GameObject.Find("scrollText").GetComponent<Text>();
-        System.IO.StreamReader fileScanner = new System.IO.StreamReader(@"Assets/Textfile/" + "gugudan.txt");
+
+        scrollText.text = "";
+
+        System.IO.StreamReader fileScanner = new System.IO.StreamReader(@"Assets/Textfile/example/" + saveValue.language + "/"+ change.value+ ".txt");
         while ((line = fileScanner.ReadLine()) != null)
         {
             scrollText.text += line + "\n";

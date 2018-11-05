@@ -14,16 +14,16 @@ public class inputScene : MonoBehaviour {
         resultCanvas = GameObject.Find("ResultCanvas").GetComponent<Canvas>();
         resultCanvas.gameObject.SetActive(false);
         scanner.SecondSceneDropdownTextread();
-        AddTextToScroll();
+        //AddTextToScroll();
 	}
 	
 	void Update () {
 		
 	}
 
-    public void AddTextToScroll()
-    {
-        textReader fillExample = new textReader();
-        fillExample.CallExampleFile();
-    }
+    //public void AddTextToScroll()
+    //{
+    //    textReader fillExample = new textReader();
+    //    fillExample.SecondSceneDropdownTextread();
+    //}
 }
