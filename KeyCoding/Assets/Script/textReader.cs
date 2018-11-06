@@ -53,7 +53,7 @@ public class textReader : MonoBehaviour {
 
         scrollText.text = "";
 
-        System.IO.StreamReader fileScanner = new System.IO.StreamReader(@"Assets/Textfile/example/" + saveValue.language + "/"+ change.value+ ".txt");
+        System.IO.StreamReader fileScanner = new System.IO.StreamReader(@"Assets/Textfile/example/" + saveValue.language + "/" + saveValue.level + "/" + change.value+ ".txt");
         while ((line = fileScanner.ReadLine()) != null)
         {
             scrollText.text += line + "\n";
