@@ -1,5 +1,5 @@
 #include<stdio.h>
-void main(){
+int main(){
 	int i, n;
 	int sum=0;
 	printf(“”)
@@ -8,4 +8,5 @@ void main(){
 		sum += i;
 	}
 	printf(“1부터 %d까지의 합 : %d”, n, sum);
+	return 0;
 }

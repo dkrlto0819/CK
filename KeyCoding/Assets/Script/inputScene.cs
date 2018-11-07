@@ -8,18 +8,32 @@ public class inputScene : MonoBehaviour {
     string selectedLevel, selectedLanguage;
     Text ScrollText;
     Canvas resultCanvas;
+    Canvas messageBox;
+    InputField input;
 
 	void Start () {
         textReader scanner = new textReader();
         resultCanvas = GameObject.Find("ResultCanvas").GetComponent<Canvas>();
+        messageBox = GameObject.Find("MessageBoxCanvas").GetComponent<Canvas>();
         resultCanvas.gameObject.SetActive(false);
+        messageBox.gameObject.SetActive(false);
+
+        input = GameObject.Find("InputField").GetComponent<InputField>();
+
         scanner.SecondSceneDropdownTextread();
         //AddTextToScroll();
 	}
-	
-	void Update () {
-		
-	}
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+
+            input.text += "\n";
+            Debug.Log(KeyCode.Return);
+            //input.text = input.text.Replace("Return", "\n");
+        }
+    }
+
 
     //public void AddTextToScroll()
     //{

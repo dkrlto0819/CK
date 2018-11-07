@@ -1,0 +1,17 @@
+#include<stdio.h>
+int main(){
+	int n, temp;
+	int max=0, min=100;
+	printf(“몇 개의 수를 입력하고 싶나요.(최대 10개, 숫자 범위 1~100) : ”);
+	scanf(“%d”, &n);
+
+	for(int i=1;i<=n;i++){
+		printf(“숫자를 입력하세요. : ”);
+		scanf(“%d”, temp);
+		if(max<temp) max=temp;
+		else if(min>temp) min=temp; 		
+	}
+
+	printf(“최대값 : %d, 최소값 : %d\n”, max, min);
+	return 0;
+}
