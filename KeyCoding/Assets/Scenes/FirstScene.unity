@@ -1301,6 +1301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Level: 
   Language: 
+  Stage: 
 --- !u!1 &971807895
 GameObject:
   m_ObjectHideFlags: 0
@@ -1991,8 +1992,6 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: 4
       m_Image: {fileID: 0}
-    - m_Text: 5
-      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2056,6 +2055,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Level: 
   Language: 
+  Stage: 
 --- !u!1 &1499538765
 GameObject:
   m_ObjectHideFlags: 0
@@ -2142,8 +2142,6 @@ MonoBehaviour:
     m_Options:
     - m_Text: C
       m_Image: {fileID: 0}
-    - m_Text: C++
-      m_Image: {fileID: 0}
     - m_Text: C#
       m_Image: {fileID: 0}
     - m_Text: Java
@@ -2202,6 +2200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Level: 
   Language: 
+  Stage: 
 --- !u!1 &1565587574
 GameObject:
   m_ObjectHideFlags: 0
@@ -2563,7 +2562,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
