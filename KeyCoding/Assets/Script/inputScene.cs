@@ -53,11 +53,11 @@ public class inputScene : MonoBehaviour {
         Debug.Log("Hello!");
         //resultText.text = "hello!";
 
-        resultText.text = "";
+        resultText.text = "\n";
         scanner = new textReader();
         scanner.ReadResultFile();
 
-        resultText.text = saveValue.resultFile;
+        resultText.text += saveValue.resultFile;
         saveValue.resultFile = "";
 
         //if (saveValue.level.Equals("0")){

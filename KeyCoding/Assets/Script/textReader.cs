@@ -46,7 +46,7 @@ public class textReader : MonoBehaviour {
         Text scrollText = GameObject.Find("scrollText").GetComponent<Text>();
         InputField input = GameObject.Find("InputField").GetComponent<InputField>();
 
-        scrollText.text = "";
+        scrollText.text = "\n";
         input.text = "";
 
         System.IO.StreamReader fileScanner = new System.IO.StreamReader(@"Assets/Textfile/example/" + saveValue.language + "/" + saveValue.level + "/" + change.value+ ".txt");
