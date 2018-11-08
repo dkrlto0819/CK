@@ -31,7 +31,6 @@ public class inputScene : MonoBehaviour {
         inputDataBox.gameObject.SetActive(false);
 
         input = GameObject.Find("InputField").GetComponent<InputField>();
-
         scanner.SecondSceneDropdownTextread();
         //AddTextToScroll();
 	}
@@ -41,29 +40,31 @@ public class inputScene : MonoBehaviour {
         {
 
             input.text += "\n";
-            Debug.Log(KeyCode.Return);
             //input.text = input.text.Replace("Return", "\n");
         }
     }
     public void ShowResult(){
-
         level2stage1 level2stage1 = new level2stage1();
-        resultText = GameObject.Find("resultText").GetComponent<Text>();
+        Text resultText = GameObject.Find("resultText").GetComponent<Text>();
         Debug.Log("Hello!");
         //resultText.text = "hello!";
 
         resultText.text = "";
         scanner = new textReader();
         scanner.ReadResultFile();
-        if(saveValue.level.Equals("0")){
-            Debug.Log(saveValue.resultFile);
-            resultText.text = saveValue.resultFile;
-            saveValue.resultFile = "";
-        }else if(saveValue.level.Equals(1)){
-            if(saveValue.stage.Equals(1)){
-                level2stage1.Doit();
-            }
-        }
+
+        resultText.text = saveValue.resultFile;
+        saveValue.resultFile = "";
+
+        //if (saveValue.level.Equals("0")){
+        //    Debug.Log(saveValue.resultFile);
+        //    resultText.text = saveValue.resultFile;
+        //    saveValue.resultFile = "";
+        //}else if(saveValue.level.Equals("1")){
+        //    if(saveValue.stage.Equals("1")){
+        //        level2stage1.Doit();
+        //    }
+        //}
 
     }
 

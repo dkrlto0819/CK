@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class level2stage1 : MonoBehaviour {
-    Canvas inputBox;
-    Text label;
-	// Use this for initialization
+    Canvas inputDataBox;
+    //Text label;
 	void Start () {
-        inputBox = GameObject.Find("InputdataBox").GetComponent<Canvas>();
-        label = GameObject.Find("question").GetComponent<Text>();
-
+        inputDataBox = GameObject.Find("InputdataBox").GetComponent<Canvas>();
+        Debug.Log(inputDataBox);
+        inputDataBox.gameObject.SetActive(true);
+        //label = GameObject.Find("Question").GetComponent<Text>();
     }
 	
 	// Update is called once per frame
@@ -18,8 +18,17 @@ public class level2stage1 : MonoBehaviour {
 		
 	}
 
+    public void Awake()
+    {
+        //inputDataBox = GameObject.Find("InputdataBox").GetComponent<Canvas>();
+    }
+
     public void Doit(){
-        label.text = saveValue.resultFile;
-        inputBox.gameObject.SetActive(true);
+        //inputBox = GameObject.Find("InputdataBox").GetComponent<Canvas>();
+        //Debug.Log(inputDataBox);
+        Debug.Log(inputDataBox);
+        inputDataBox.gameObject.SetActive(true);
+        //label.text = saveValue.resultFile;
+
     }
 }
