@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class clickButton : MonoBehaviour {
     Canvas resultCanvas;
@@ -19,11 +20,18 @@ public class clickButton : MonoBehaviour {
 
     public void ClickDoneButton()
     {
+        getDropdownValue dropdownValue = new getDropdownValue();
+        inputScene input = new inputScene();
+       // Text resultText = GameObject.Find("resultText").GetComponent<Text>();
+
         marking flagValue = new marking();
         flag = flagValue.checking();
         if (flag == 1)
         {
+
+            dropdownValue.getStageValue();
             resultCanvas.gameObject.SetActive(true);
+            input.ShowResult();
             flag = 0;
         }else{
             messageBox.gameObject.SetActive(true);

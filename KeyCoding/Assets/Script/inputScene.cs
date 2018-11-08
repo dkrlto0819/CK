@@ -5,18 +5,26 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class inputScene : MonoBehaviour {
-    string selectedLevel, selectedLanguage;
-    Text ScrollText;
+    //string selectedLevel, selectedLanguage;
+
+    textReader scanner;
+
+    //Text ScrollText;
     Canvas resultCanvas;
     Canvas messageBox;
     Canvas inputDataBox;
     InputField input;
 
+    string result;
+
+    Text resultText;
+
 	void Start () {
-        textReader scanner = new textReader();
+        scanner=new textReader();
         resultCanvas = GameObject.Find("ResultCanvas").GetComponent<Canvas>();
         messageBox = GameObject.Find("MessageBoxCanvas").GetComponent<Canvas>();
         inputDataBox = GameObject.Find("InputdataBox").GetComponent<Canvas>();
+        //resultText = GameObject.Find("resultText").GetComponent<Text>();
 
         resultCanvas.gameObject.SetActive(false);
         messageBox.gameObject.SetActive(false);
@@ -36,6 +44,27 @@ public class inputScene : MonoBehaviour {
             Debug.Log(KeyCode.Return);
             //input.text = input.text.Replace("Return", "\n");
         }
+    }
+    public void ShowResult(){
+
+        level2stage1 level2stage1 = new level2stage1();
+        resultText = GameObject.Find("resultText").GetComponent<Text>();
+        Debug.Log("Hello!");
+        //resultText.text = "hello!";
+
+        resultText.text = "";
+        scanner = new textReader();
+        scanner.ReadResultFile();
+        if(saveValue.level.Equals("0")){
+            Debug.Log(saveValue.resultFile);
+            resultText.text = saveValue.resultFile;
+            saveValue.resultFile = "";
+        }else if(saveValue.level.Equals(1)){
+            if(saveValue.stage.Equals(1)){
+                level2stage1.Doit();
+            }
+        }
+
     }
 
 

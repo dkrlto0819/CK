@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class getDropdownValue : MonoBehaviour {
     Dropdown value_Dropdown;
 
-    public string Level, Language;
+    public string Level, Language, Stage;
     // Use this for initialization
     void Start () {
 
@@ -30,6 +30,12 @@ public class getDropdownValue : MonoBehaviour {
         Language = value_Dropdown.value.ToString();
         Debug.Log(Language);
         saveValue.language = Language;
+    }
+
+    public void getStageValue(){
+        value_Dropdown = GameObject.Find("StageContent").GetComponent<Dropdown>();
+        Stage = value_Dropdown.value.ToString();
+        saveValue.stage = Stage;
     }
 
 }

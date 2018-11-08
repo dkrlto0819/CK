@@ -6,17 +6,23 @@ using UnityEngine.UI;
 
 public class textReader : MonoBehaviour {
 
+    Text resultText;
     Scrollbar example;
     Dropdown dropdown;
     string basicPath = "Assets/Textfile/";
 
     void Start()
     {
-        Dropdown dropdown1 = GetComponent<Dropdown>();
-        //Add listener for when the value of the Dropdown changes, to take action
+        Dropdown dropdown1 = GameObject.Find("StageContent").GetComponent<Dropdown>();
         dropdown1.onValueChanged.AddListener(delegate {
             DropdownValueChanged(dropdown1);
         });
+
+    }
+
+    public void Awake()
+    {
+        resultText = GameObject.Find("resultText").GetComponent<Text>();
     }
 
     public void SecondSceneDropdownTextread(){
@@ -25,7 +31,7 @@ public class textReader : MonoBehaviour {
         string line;
         dropdown = GameObject.Find("StageContent").GetComponent<Dropdown>();
 
-        System.IO.StreamReader fileScanner = new System.IO.StreamReader(@"Assets/Textfile/"+"level/"+saveValue.level+".txt");
+        System.IO.StreamReader fileScanner = new System.IO.StreamReader(@"Assets/Textfile/level/"+saveValue.level+".txt");
         while ((line = fileScanner.ReadLine()) != null)
         {
             dropdown.options.Add(new Dropdown.OptionData() { text = line });
@@ -34,18 +40,6 @@ public class textReader : MonoBehaviour {
 
         fileScanner.Close();
     }
-
-    //public void CallExampleFile(){
-    //    string line;
-    //    Text scrollText = GameObject.Find("scrollText").GetComponent<Text>();
-    //    System.IO.StreamReader fileScanner = new System.IO.StreamReader(@"Assets/Textfile/example/" + saveValue.language + "/2.txt");
-    //    while ((line = fileScanner.ReadLine()) != null)
-    //    {
-    //        scrollText.text += line + "\n";
-    //    }
-
-    //    fileScanner.Close();
-    //}
 
     public void DropdownValueChanged(Dropdown change){
         string line;
@@ -59,6 +53,24 @@ public class textReader : MonoBehaviour {
         while ((line = fileScanner.ReadLine()) != null)
         {
             scrollText.text += line + "\n";
+        }
+
+        fileScanner.Close();
+    }
+
+    public void ReadResultFile(){
+        string line;
+        //string resultFile="";
+        //resultText.text = "";
+        //input.text = "";
+        Text result = GameObject.Find("resultText").GetComponent<Text>();
+        //Text result = GameObject.Find("resultText").GetComponent<Text>();
+
+        System.IO.StreamReader fileScanner = new System.IO.StreamReader(@"Assets/Textfile/result/" + saveValue.language + "/" + saveValue.level + "/" + saveValue.stage + ".txt");
+        while ((line = fileScanner.ReadLine()) != null)
+        {
+            //result.text += line + "\n";
+            saveValue.resultFile += line + "\n";
         }
 
         fileScanner.Close();
