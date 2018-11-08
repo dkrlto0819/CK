@@ -1,25 +1,18 @@
 #include<stdio.h>
 int main(){
-	int n, temp, minindex;
-	int a[100];
-	printf("몇 개의 수를 입력받을 것인지 입력하시오. : ");
-	scanf("%d", &n);
-
-	for(int i=0;i<n;i++){
-		printf("수를 입력하시오. : ");
-		scanf("%d", &a[i]);
-	}
+	int temp, minindex;
+	int data[10]={3, 8, 7, 6, 5, 4, 8, 1, 9, 10};
 	
-	for(int i=0;i<n;i++){
+	for(int i=0;i<10;i++){
 		minindex=i;
-		for(int j=i+1;j<n;j++){
+		for(int j=i+1;j<10;j++){
 			if(data[j]<data[minindex]) minindex=j;
 		}
 		temp=data[index];
 		data[index]=data[i];
 		data[i]=temp;
 	}
-	for(int i=0;i<n;i++){
-		printf("%d ", a[i]);
+	for(int i=0;i<10;i++){
+		printf("%d\n", data[i]);
 	}
 }

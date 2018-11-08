@@ -66,7 +66,7 @@ public class textReader : MonoBehaviour {
         Text result = GameObject.Find("resultText").GetComponent<Text>();
         //Text result = GameObject.Find("resultText").GetComponent<Text>();
 
-        System.IO.StreamReader fileScanner = new System.IO.StreamReader(@"Assets/Textfile/result/" + saveValue.language + "/" + saveValue.level + "/" + saveValue.stage + ".txt");
+        System.IO.StreamReader fileScanner = new System.IO.StreamReader(@"Assets/Textfile/result/0/" + saveValue.level + "/" + saveValue.stage + ".txt");
         while ((line = fileScanner.ReadLine()) != null)
         {
             //result.text += line + "\n";

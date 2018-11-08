@@ -1,0 +1,13 @@
+class Program{
+	static void Main(string[] args){
+		for(int i=1;i<=10;i++){
+			for(j=1;j<=9-i;j++){
+				Console.Write(" ");
+			}
+			for(j=1;i<=i+1;j++){
+				Console.Write("*");
+			}
+			Console.WriteLine("");
+		}
+	}
+}
