@@ -9,14 +9,18 @@ public class inputScene : MonoBehaviour {
     Text ScrollText;
     Canvas resultCanvas;
     Canvas messageBox;
+    Canvas inputDataBox;
     InputField input;
 
 	void Start () {
         textReader scanner = new textReader();
         resultCanvas = GameObject.Find("ResultCanvas").GetComponent<Canvas>();
         messageBox = GameObject.Find("MessageBoxCanvas").GetComponent<Canvas>();
+        inputDataBox = GameObject.Find("InputdataBox").GetComponent<Canvas>();
+
         resultCanvas.gameObject.SetActive(false);
         messageBox.gameObject.SetActive(false);
+        inputDataBox.gameObject.SetActive(false);
 
         input = GameObject.Find("InputField").GetComponent<InputField>();
 

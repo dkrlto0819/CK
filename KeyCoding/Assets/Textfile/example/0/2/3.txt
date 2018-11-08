@@ -2,12 +2,12 @@
 int main(){
 	for(int i=1;i<=10;i++){
 		for(j=1;j<=9-i;j++){
-			printf(“ “);
+			printf(" ");
 		}
 		for(j=1;i<=i+1;j++){
-			printf(“*”);
+			printf("*");
 		}
-		printf(“\n”);
+		printf("\n");
 	}
 	return 0;
 }

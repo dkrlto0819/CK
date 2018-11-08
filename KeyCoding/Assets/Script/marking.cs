@@ -23,14 +23,14 @@ public class marking : MonoBehaviour {
 
         string example, answer;
         example = scrollText.text.Trim();
+        example = example.Replace("\t", "");
         example = example.Replace(" ", "");
         answer = input.text.Trim();
+        answer = answer.Replace("\t", "");
         answer = answer.Replace(" ", "");
-
 
         if (answer.Equals(example))
         {
-
             return 1;
         }
         else return 0;

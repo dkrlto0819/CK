@@ -50,8 +50,10 @@ public class textReader : MonoBehaviour {
     public void DropdownValueChanged(Dropdown change){
         string line;
         Text scrollText = GameObject.Find("scrollText").GetComponent<Text>();
+        InputField input = GameObject.Find("InputField").GetComponent<InputField>();
 
         scrollText.text = "";
+        input.text = "";
 
         System.IO.StreamReader fileScanner = new System.IO.StreamReader(@"Assets/Textfile/example/" + saveValue.language + "/" + saveValue.level + "/" + change.value+ ".txt");
         while ((line = fileScanner.ReadLine()) != null)
