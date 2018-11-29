@@ -46,7 +46,7 @@ public class textReader : MonoBehaviour {
         Text scrollText = GameObject.Find("scrollText").GetComponent<Text>();
         InputField input = GameObject.Find("InputField").GetComponent<InputField>();
 
-        scrollText.text = "\n";
+        scrollText.text = "\n\n";
         input.text = "";
 
         System.IO.StreamReader fileScanner = new System.IO.StreamReader(@"Assets/Textfile/example/" + saveValue.language + "/" + saveValue.level + "/" + change.value+ ".txt");
@@ -56,6 +56,30 @@ public class textReader : MonoBehaviour {
         }
 
         fileScanner.Close();
+    }
+
+    public void TestScene(){
+        string line;
+
+        InputField input = GameObject.Find("InputField").GetComponent<InputField>();
+        Text text = GameObject.Find("1").GetComponent<Text>();
+        text.text = "\n\n";
+        input.text = "";
+
+        int i = 1;
+
+        //System.IO.StreamReader fileScanner = new System.IO.StreamReader(@"Assets/Textfile/example/" + saveValue.language + "/" + saveValue.level + "/" + change.value + ".txt");
+        //while ((line = fileScanner.ReadLine()) != null && i!=5)
+        while(i!=5)
+        {
+            string name = i.ToString();
+            text = GameObject.Find(name).GetComponent<Text>();
+
+            text.text += "Hello!" + "\n";
+            i += 2;
+        }
+
+        //fileScanner.Close();
     }
 
     public void ReadResultFile(){
