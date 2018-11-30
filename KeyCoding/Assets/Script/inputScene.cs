@@ -55,6 +55,7 @@ public class inputScene : MonoBehaviour {
             inputLength = inputValue.Length;
 
             Debug.Log(inputValue.Substring(inputLength));
+
             if (input.text.Substring(inputLength).Contains("}")) {
                 int lastIndex=input.text.LastIndexOf("}");
                 //int lastIndex = inputValue.LastIndexOf("}");
@@ -62,11 +63,11 @@ public class inputScene : MonoBehaviour {
 
                 if (input.text.Substring(lastIndex - 5).Contains(";"))
                 {
-                    //int lastIndex = inputValue.LastIndexOf("}");
-                    Debug.Log("Hi");
-                    int lastIndexforSemi = input.text.LastIndexOf(";");
+                    int lastIndexforSemi = input.text.LastIndexOf(";")+1;
                     Debug.Log(input.text.Substring(lastIndexforSemi));
-                    input.text = input.text.Substring(0, lastIndex-3)+"\n";
+                    Debug.Log(input.text.Substring(0, lastIndex - 3));
+                    //input.text = input.text.Substring(0, lastIndex-3)+"\n";
+                    input.text = input.text.Substring(0, lastIndexforSemi) + "\n";
                     for (int i = 1; i <= count-1; i++) input.text += "\t";
                     input.text += "}\n";
                 }
