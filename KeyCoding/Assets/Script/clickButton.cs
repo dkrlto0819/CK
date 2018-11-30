@@ -6,11 +6,13 @@ using UnityEngine.UI;
 public class clickButton : MonoBehaviour {
     Canvas resultCanvas;
     Canvas messageBox;
+    Canvas solutionCanvas;
     int flag=0;
 
 	void Awake () {
         resultCanvas = GameObject.Find("ResultCanvas").GetComponent<Canvas>();
         messageBox = GameObject.Find("MessageBoxCanvas").GetComponent<Canvas>();
+        solutionCanvas = GameObject.Find("SolutionCanvas").GetComponent<Canvas>();
     }
 	
 	// Update is called once per frame
@@ -44,6 +46,14 @@ public class clickButton : MonoBehaviour {
 
     public void ClickCloseButton(){
         messageBox.gameObject.SetActive(false);
+    }
+
+    public void ClicksolutionButton(){
+        solutionCanvas.gameObject.SetActive(true);
+    }
+
+    public void ClickSolutionXButton(){
+        solutionCanvas.gameObject.SetActive(false);
     }
     
 }

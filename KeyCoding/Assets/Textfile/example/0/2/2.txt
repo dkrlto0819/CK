@@ -1,13 +1,13 @@
 #include<stdio.h>
 int main(){
-	for(int i=1;i<=10;i++){
-		for(j=1;j<=9-i;j++){
-			printf(" ");
+		for(int i=1;i<=10;i++){
+			for(j=1;j<=9-i;j++){
+				printf(" ");
+			}
+			for(j=1;i<=i+1;j++){
+				printf("*");
+			}
+			printf("\n");
 		}
-		for(j=1;i<=i+1;j++){
-			printf("*");
-		}
-		printf("\n");
-	}
-	return 0;
+		return 0;
 }

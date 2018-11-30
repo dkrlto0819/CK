@@ -1,18 +1,18 @@
 #include<stdio.h>
 int main(){
-	int temp, minindex;
-	int data[10]={3, 8, 7, 6, 5, 4, 8, 1, 9, 10};
-	
-	for(int i=0;i<10;i++){
-		minindex=i;
-		for(int j=i+1;j<10;j++){
-			if(data[j]<data[minindex]) minindex=j;
+		int temp, minindex;
+		int data[10]={3, 8, 7, 6, 5, 4, 8, 1, 9, 10};
+		
+		for(int i=0;i<10;i++){
+			minindex=i;
+			for(int j=i+1;j<10;j++){
+				if(data[j]<data[minindex]) minindex=j;
+			}
+			temp=data[index];
+			data[index]=data[i];
+			data[i]=temp;
 		}
-		temp=data[index];
-		data[index]=data[i];
-		data[i]=temp;
-	}
-	for(int i=0;i<10;i++){
-		printf("%d\n", data[i]);
-	}
+		for(int i=0;i<10;i++){
+			printf("%d\n", data[i]);
+		}
 }

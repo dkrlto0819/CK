@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Text.RegularExpressions;
 
 public class inputScene : MonoBehaviour {
     //string selectedLevel, selectedLanguage;
@@ -13,26 +14,32 @@ public class inputScene : MonoBehaviour {
     Canvas resultCanvas;
     Canvas messageBox;
     Canvas inputDataBox;
+    Canvas solutionCanvas;
     InputField input;
     //Canvas scrollCanvas;
+    int count, left, right;
 
     string result;
 
     Text resultText;
 
-	void Start () {
+    void Start () {
 
+        count = 0;
 
         scanner=new textReader();
         resultCanvas = GameObject.Find("ResultCanvas").GetComponent<Canvas>();
         messageBox = GameObject.Find("MessageBoxCanvas").GetComponent<Canvas>();
         inputDataBox = GameObject.Find("InputdataBox").GetComponent<Canvas>();
+        solutionCanvas = GameObject.Find("SolutionCanvas").GetComponent<Canvas>();
+
         //resultText = GameObject.Find("resultText").GetComponent<Text>();
        // scrollCanvas = GameObject.Find("scrollCanvas").GetComponent<Canvas>();
 
         resultCanvas.gameObject.SetActive(false);
         messageBox.gameObject.SetActive(false);
         inputDataBox.gameObject.SetActive(false);
+        solutionCanvas.gameObject.SetActive(false);
 
         input = GameObject.Find("InputField").GetComponent<InputField>();
         scanner.SecondSceneDropdownTextread();
@@ -42,9 +49,34 @@ public class inputScene : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            Debug.Log("enter");
+            int inputLength=0;
+            string inputValue = input.text.Replace("\n", "");
+            inputValue = inputValue.Replace(" ", "");
+            inputLength = inputValue.Length;
 
-            input.text += "\n";
-            //input.text = input.text.Replace("Return", "\n");
+            Debug.Log(inputValue.Substring(inputLength));
+            //if (input.text.Substring(inputLength).Contains("{"))
+            //{
+            //    count++;
+            //}
+            //else if (input.text.Substring(inputLength).Contains("}")) {
+            //    //input.text.Substring(inputLength - 5, inputLength).Replace("   ", "");
+            //    count--; 
+            //}
+            System.Text.RegularExpressions.Regex cntStr = new System.Text.RegularExpressions.Regex("{");
+            left = int.Parse(cntStr.Matches(inputValue, 0).Count.ToString());
+            System.Text.RegularExpressions.Regex cntStr2 = new System.Text.RegularExpressions.Regex("}");
+            right = int.Parse(cntStr2.Matches(inputValue, 0).Count.ToString());
+
+            count = left - right;
+            //input.text += "\n";
+            //Debug.Log("\t" + count);
+            for (int i = 1; i <= count; i++)
+            {
+                input.text += "\t";
+            }
+            input.caretPosition = input.text.Length;
         }
     }
     public void ShowResult(){
@@ -59,17 +91,6 @@ public class inputScene : MonoBehaviour {
 
         resultText.text += saveValue.resultFile;
         saveValue.resultFile = "";
-
-        //if (saveValue.level.Equals("0")){
-        //    Debug.Log(saveValue.resultFile);
-        //    resultText.text = saveValue.resultFile;
-        //    saveValue.resultFile = "";
-        //}else if(saveValue.level.Equals("1")){
-        //    if(saveValue.stage.Equals("1")){
-        //        level2stage1.Doit();
-        //    }
-        //}
-
     }
 
 
