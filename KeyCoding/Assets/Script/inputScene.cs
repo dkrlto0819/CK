@@ -49,27 +49,35 @@ public class inputScene : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            Debug.Log("enter");
             int inputLength=0;
             string inputValue = input.text.Replace("\n", "");
             inputValue = inputValue.Replace(" ", "");
             inputLength = inputValue.Length;
 
             Debug.Log(inputValue.Substring(inputLength));
-            //if (input.text.Substring(inputLength).Contains("{"))
-            //{
-            //    count++;
-            //}
-            //else if (input.text.Substring(inputLength).Contains("}")) {
-            //    //input.text.Substring(inputLength - 5, inputLength).Replace("   ", "");
-            //    count--; 
-            //}
+            if (input.text.Substring(inputLength).Contains("}")) {
+                int lastIndex=input.text.LastIndexOf("}");
+                //int lastIndex = inputValue.LastIndexOf("}");
+                //Debug.Log(lastIndex);
+
+                if (input.text.Substring(lastIndex - 5).Contains(";"))
+                {
+                    //int lastIndex = inputValue.LastIndexOf("}");
+                    Debug.Log("Hi");
+                    int lastIndexforSemi = input.text.LastIndexOf(";");
+                    Debug.Log(input.text.Substring(lastIndexforSemi));
+                    input.text = input.text.Substring(0, lastIndex-3)+"\n";
+                    for (int i = 1; i <= count-1; i++) input.text += "\t";
+                    input.text += "}\n";
+                }
+                 
+            }
             System.Text.RegularExpressions.Regex cntStr = new System.Text.RegularExpressions.Regex("{");
             left = int.Parse(cntStr.Matches(inputValue, 0).Count.ToString());
             System.Text.RegularExpressions.Regex cntStr2 = new System.Text.RegularExpressions.Regex("}");
             right = int.Parse(cntStr2.Matches(inputValue, 0).Count.ToString());
 
-            count = left - right;
+            count=left-right;
             //input.text += "\n";
             //Debug.Log("\t" + count);
             for (int i = 1; i <= count; i++)
