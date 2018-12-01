@@ -66,7 +66,7 @@ public class inputScene : MonoBehaviour {
                     if (!input.text.Substring(lastIndex - 5).Contains("};")){
                         int lastIndexforSemi = input.text.LastIndexOf(";");
                         //input.text = input.text.Substring(0, lastIndex-3)+"\n";
-                        input.text = input.text.Substring(0, lastIndexforSemi) + "\n";
+                        input.text = input.text.Substring(0, lastIndexforSemi+1) + "\n";
                         for (int i = 1; i <= count - 1; i++) input.text += "\t";
                         input.text += "}\n";
                     }
