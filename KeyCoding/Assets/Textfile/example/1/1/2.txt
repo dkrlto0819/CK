@@ -1,15 +1,15 @@
 class Program{
-	static void Main(string[] args){
-		int switch=0;
-		for(int i=2;i<=50;i++){
-			for(int j=2;j<=i/2;i++){
-				if(i%j==0){
-					switch=1;
-					break;
+		static void Main(string[] args){
+			int switch=0;
+			for(int i=2;i<=50;i++){
+				for(int j=2;j<=i/2;j++){
+					if(i%j==0){
+						switch=1;
+						break;
+					}
 				}
+				if(switch==0) Console.WriteLine(i);
+				else switch=0;
 			}
-			if(switch==0) Console.WriteLine(i);
-			else switch=0;
 		}
-	}
 }

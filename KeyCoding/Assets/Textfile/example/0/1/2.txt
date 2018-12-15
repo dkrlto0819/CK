@@ -10,5 +10,5 @@ int main(){
 			}
 			if(switch==0) printf("%d\n", i);
 			else switch=0;
-	}
+		}
 }

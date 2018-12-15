@@ -1,13 +1,14 @@
 class Program{
-	public static void main(String[] args){
-		for(int i=1;i<=10;i++){
-			for(j=1;j<=9-i;j++){
-				Console.Write(" ");
+		public static void main(String[] args){
+			for(int i=1;i<=10;i++){
+				for(j=1;j<=9-i;j++){
+					Console.Write(" ");
+				}
+				for(j=1;j<=i+1;j++){
+					System.out.printf("*");
+				}
+				System.out.println("");
 			}
-			for(j=1;i<=i+1;j++){
-				System.out.printf("*");
-			}
-			System.out.println("");
+
 		}
-	}
 }

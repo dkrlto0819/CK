@@ -58,19 +58,30 @@ public class inputScene : MonoBehaviour {
 
             if (input.text.Substring(inputLength).Contains("}")) {
                 int lastIndex=input.text.LastIndexOf("}");
-                //int lastIndex = inputValue.LastIndexOf("}");
-                //Debug.Log(lastIndex);
+                int textLength = input.text.Length;
+                Debug.Log(lastIndex + " " + textLength);
+                //if (input.text.Substring(lastIndex - 4).Contains(";"))
+                //{
+                if (!input.text.Substring(lastIndex).Contains("};") && (textLength-lastIndex)<=5){
+                    //Debug.Log(input.text.Substring(textLength));
+                    string hello = input.text.Substring(inputLength).Replace("\t", "");
+                    hello = hello.Replace("\n", "");
+                    Debug.Log(hello);
+                    int lastIndexforSemi;
+                    //int lastIndexforSemi = input.text.LastIndexOf(";");
 
-                if (input.text.Substring(lastIndex - 5).Contains(";"))
-                {
-                    if (!input.text.Substring(lastIndex - 5).Contains("};")){
-                        int lastIndexforSemi = input.text.LastIndexOf(";");
-                        //input.text = input.text.Substring(0, lastIndex-3)+"\n";
-                        input.text = input.text.Substring(0, lastIndexforSemi+1) + "\n";
-                        for (int i = 1; i <= count - 1; i++) input.text += "\t";
-                        input.text += "}\n";
+                    if (hello.Contains("}}"))
+                    {
+                        Debug.Log("}}");
+                        lastIndexforSemi = input.text.LastIndexOf("}")-3;
                     }
-                }
+                    else
+                        lastIndexforSemi = input.text.LastIndexOf(";");
+                    input.text = input.text.Substring(0, lastIndexforSemi+1) + "\n";
+                        for (int i = 1; i <= count-1; i++) input.text += "\t";
+                        input.text += "}\n";
+                   }
+                //}
                  
             }
             System.Text.RegularExpressions.Regex cntStr = new System.Text.RegularExpressions.Regex("{");

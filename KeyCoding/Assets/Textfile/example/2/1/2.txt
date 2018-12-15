@@ -1,15 +1,16 @@
 class Program{
-	public static void main(String[] args){
-		int switch=0;
-		for(int i=2;i<=50;i++){
-			for(int j=2;j<=i/2;i++){
-				if(i%j==0){
-					switch=1;
-					break;
+		public static void main(String[] args){
+			int switch=0;
+			for(int i=2;i<=50;i++){
+				for(int j=2;j<=i/2;j++){
+					if(i%j==0){
+						switch=1;
+						break;
+					}
 				}
+				if(switch==0) System.out.println(i);
+				else switch=0;
 			}
-			if(switch==0) System.out.println(i);
-			else switch=0;
+
 		}
-	}
 }
