@@ -72,7 +72,6 @@ public class inputScene : MonoBehaviour {
 
                     if (hello.Contains("}}"))
                     {
-                        Debug.Log("}}");
                         lastIndexforSemi = input.text.LastIndexOf("}")-3;
                     }
                     else
